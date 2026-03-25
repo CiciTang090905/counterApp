@@ -1,21 +1,25 @@
 import "./App.css";
+import { useState } from "react"; // 👀 Import useState
 
 export default function App() {
-  let count = 0;
+  const [count, setCount] = useState(0); // 👀 Replace let count = 0
+  //useState(0) creates a piece of state initialized to 0
+  //It returns an array with two items: the current value (count) and a function to update it (setCount)
+  //array destructuring
+
+  //when call setCount --> stores updated val, and re-runs component function
+  //UI = f(state) --> update state, and the UI follows
 
   function increment() {
-    count = count + 1;
-    console.log("count is now:", count);
+    setCount(count + 1); // 👀 Use setCount instead of count =
   }
 
   function decrement() {
-    count = count - 1;
-    console.log("count is now:", count);
+    setCount(count - 1);
   }
 
   function reset() {
-    count = 0;
-    console.log("count is now:", count);
+    setCount(0);
   }
 
   return (
@@ -27,7 +31,9 @@ export default function App() {
     </div>
   );
 }
+
 //attach event handlers directly to the buttons using onClick
+//already return JSX, UI do not render the changes currently --> need to use useState to let React know
 
 
 //The HTML-like syntax inside the return statement is called JSX (JavaScript XML)
