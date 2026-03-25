@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react"; // 👀 Import useState
+import { useState, useEffect } from "react"; // 👀 Import useState
 
 export default function App() {
   const [count, setCount] = useState(0); // 👀 Replace let count = 0
@@ -9,6 +9,15 @@ export default function App() {
 
   //when call setCount --> stores updated val, and re-runs component function
   //UI = f(state) --> update state, and the UI follows
+
+  useEffect(() => {
+    console.log("count changed to:", count);
+  }, [count]); //whenever count changes, regardless of why, run this side effect
+  //instead of adding log message to every function manually
+
+  //2 args: a function, and an dependency array.
+  //after a render, React runs the effect on changed values from last render
+  //reference is what matters in array
 
   function increment() {
     setCount(count + 1); // 👀 Use setCount instead of count =
