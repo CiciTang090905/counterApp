@@ -1,17 +1,34 @@
 import "./App.css";
 
 export default function App() {
-  const count = 0;
+  let count = 0;
+
+  function increment() {
+    count = count + 1;
+    console.log("count is now:", count);
+  }
+
+  function decrement() {
+    count = count - 1;
+    console.log("count is now:", count);
+  }
+
+  function reset() {
+    count = 0;
+    console.log("count is now:", count);
+  }
 
   return (
     <div className="counter">
       <h1>Count: {count}</h1>
-      <button>+</button>
-      <button>&minus;</button>
-      <button>Reset</button>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>−</button>
+      <button onClick={reset}>Reset</button>
     </div>
   );
 }
+//attach event handlers directly to the buttons using onClick
+
 
 //The HTML-like syntax inside the return statement is called JSX (JavaScript XML)
 // JSX gets transformed into React.createElement() calls behind the scenes
