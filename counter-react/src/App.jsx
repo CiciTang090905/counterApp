@@ -18,6 +18,7 @@ export default function App() {
   //2 args: a function, and an dependency array.
   //after a render, React runs the effect on changed values from last render
   //reference is what matters in array
+  //no matter which handler caused it
 
   function increment() {
     setCount(count + 1); // 👀 Use setCount instead of count =
